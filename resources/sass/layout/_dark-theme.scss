@@ -1,0 +1,121 @@
+body.dark-theme{
+
+   @include bg-color ($dark-body-color);
+   @include color ($dark-text-color);
+
+   h1, h2, h3 {
+      @include color ($dark-title-color);
+   }
+
+   .content {
+      &__toptitle {
+         @include color ($dark-first-color);
+      }
+      &__button-arrow-right{
+         @include bg-color ($dark-first-color);
+         &:hover {
+            @include bg-color ($dark-first-color-alt);
+         }
+      }
+   }
+
+   .popular {
+      &__item {
+         @include bg-color ($dark-container-color);
+      }
+   }
+
+   .item-popular {
+      box-shadow: 0 8px 20px hsla(19, 64%, 4%, .2);
+
+      &__value {
+         & span {
+            @include color ($dark-first-color);
+         }
+      }
+
+      &__buttons {
+         @include bg-color ($dark-first-color);
+         &:hover{
+            @include bg-color ($dark-first-color-alt);
+         }
+      }
+   }
+
+   .header{
+      @include bg-color ($dark-body-color);
+      transition: background 0.3s ease 0s;
+      &__logo{
+         @include color ($dark-title-color);
+         &:hover{
+            @include color ($dark-first-color);
+         }
+      }
+
+      &__menu {
+         @media (max-width: 767.98px){
+            &{
+               @include bg-color ($dark-body-color);
+            }
+         }
+      }
+
+      &__change-theme {
+         @include color ($dark-first-color);
+      }
+   }
+   .menu {
+      &__link {
+         @include color ($dark-title-color);
+         &:hover{
+            @include color ($dark-first-color);
+         }
+      }
+   }
+
+   .newsletter {
+      &__body {
+         @include bg-color ($dark-container-color);
+      }
+      &__form{
+         @include bg-color ($dark-title-color);
+      }
+      &__input{
+         @include color (hsl(19, 16%, 25%));
+         @include bg-color ($dark-title-color);
+      }
+   }
+
+   /*=============== Change background header ===============*/
+   .scroll-header{
+      transition: box-shadow 0.3s ease 0s;
+      box-shadow: 10px 0 0 $dark-body-color, -10px 0 0 $dark-body-color;
+   }
+
+   /*=============== Active link ===============*/
+   .active-link{
+      @include color ($dark-first-color);
+   }
+
+   /*=============== SCROLL UP ===============*/
+   .scrollup {
+      @include bg-color ($dark-first-color);
+      @include color (white);
+   }
+
+   &::-webkit-scrollbar{
+      width: 10px;
+      border-radius: 8px;
+      // background-color: hsl(19, 8%, 75%);
+      background-color: hsl(19, 8%, 15%);
+    }
+    
+   &::-webkit-scrollbar-thumb{
+      border-radius: 8px;
+      background-color: hsl(19, 8%, 25%);
+    }
+    
+   &::-webkit-scrollbar-thumb:hover{
+      background-color: hsl(19, 8%, 45%);
+    }
+}

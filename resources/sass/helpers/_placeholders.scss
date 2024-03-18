@@ -1,0 +1,32 @@
+%container {
+   box-sizing: content-box;
+   max-width: 1024px; /* padding.+30px | 2 * 15px */
+   margin: 0px auto;
+   padding-inline: 8px;
+}
+
+%po_r-m_top{
+   position: relative;
+   margin-top: 60px;
+}
+
+%flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+%center-jus-ali {
+   justify-content: center;
+   align-items: center;
+}
+
+%margin-bottom {
+   margin-bottom: 20px;
+}
+
+%poa-op-w {
+   position: absolute;
+   opacity: 0.2;
+   width: 100px;
+}

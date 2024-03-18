@@ -1,0 +1,380 @@
+/*=============== GOOGLE FONTS ===============*/
+   //===== Dancing Script
+   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+   //===== Lora
+   @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600&display=swap');
+   //===== Poppins
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+//*=============== HELPERS ===============*/   
+@import "helpers/variables.scss";
+@import "helpers/mixins.scss";
+
+/*=============== Null Style ===============*/
+@import "helpers/nullstyle.scss";
+
+/*=============== BASE ===============*/
+html {
+   scroll-behavior: smooth;
+   font-size: $normal-font-size;
+}
+ 
+body {
+   font-family: $body-font;
+   font-size: $normal-font-size;
+   background-color: $body-color;
+   color: $text-color;
+   transition: background 0.3s ease 0s; /* for dark mode animation */
+}
+ 
+h1, h2, h3 {
+   color: $title-color;
+   font-weight: $font-medium;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}
+
+.wrapper{
+  min-height: 100%;
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+}
+
+/*=============== REUSED Section Content ===============*/
+/* header__menu menu */
+.menu {
+
+   &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 20px;
+      row-gap: 8px;
+   }
+
+   &__item {  
+      @extend %flex-center;
+   }
+
+   &__link {
+      @include color ($title-color);
+      font-weight: $font-medium;
+      transition: color 0.3s ease 0s;
+      &:hover{
+         @include color ($first-color);
+      }
+   }
+
+   &__icon {
+      position: absolute;
+      top: 10px;
+      right: 17px;
+      font-size: 40px;
+      cursor: pointer;
+      display: none;
+   }
+
+   &__image-1,
+   &__image-2 {
+      position: absolute;
+      opacity: .2;
+      display: none;
+   }
+
+   &__image-1 {
+      width: 100px;
+      top: 14px;
+      left: -36px;
+      transform: rotate(165deg);
+   }
+
+   &__image-2 {
+      width: 50px;
+      bottom: 0;
+      right: -18px;
+      transform: rotate(-30deg);
+   }
+}
+
+/* home__content content */
+.content {
+   font-family: $title-font;
+
+   &__toptitle {
+      display: block;
+      font-size: $h2-font-size;
+      font-family: $subtitle-font;
+      color: $first-color;
+      &:not(:last-child){
+         @extend %margin-bottom;
+      }
+   }
+
+   &__title {
+      font-size: $biggest-font-size;
+      &:not(:last-child){
+         @extend %margin-bottom;
+      }
+   }
+
+   &__subtitle {
+      font-size: $biggest-font-size;
+      display: flex;
+      align-items: center;
+      &:not(:last-child){
+         @extend %margin-bottom;
+      }
+      & img{
+         width: 40px;
+         &:not(:last-child){
+            margin-right: 20px;
+         }
+      }
+   }
+
+   &__text {
+      &:not(:last-child){
+         @extend %margin-bottom;
+      }
+   }
+
+   &__button-arrow-right{
+      display: inline-flex;
+      align-items: center;
+      background-color: $first-color;
+      column-gap: 9px;
+      padding: 18px;
+      border-radius: 30px;
+      color: white;
+      font-weight: $font-medium;
+      transition: background 0.3s ease 0s;
+      &:hover {
+         background-color: $first-color-alt;
+      }
+      &:hover i {
+         transform: translateX(4.5px);
+      }
+      & i {
+         font-size: 27px;
+         transition: transform 0.3s ease 0s;
+      }   
+   }
+
+   &__img {
+      width: 512px;
+      z-index: 5;
+      & img{
+          max-width: 100%;
+      }
+   }
+}
+
+/* popular__items
+   popular__column 
+   popular__item item-popular */
+.item-popular {
+   box-shadow: 0 8px 20px hsla(19, 64%, 48%, .08);
+   border-radius: 18px;
+   text-align: center;
+   padding-inline: 8px;
+   transition: background 0.3s ease 0s;
+
+   &:hover &__icon {
+      transform: translateY(-5px);
+   }
+
+   &__icon {
+      width: 220px;
+      position: relative;
+      top: -45px;
+      margin: 0 auto;
+      margin-bottom: -25px;
+      transition: transform 0.3s ease 0s;
+
+      & img {
+         transition: transform 0.3s ease 0s;
+      }
+
+      &:hover img {
+         transform: scale(1.5);
+      }
+   }
+
+   &__title {
+      & h3 {
+         font-size: $h3-font-size;
+         font-weight: $title-font;
+      }
+            
+      &:not(:last-child){
+         @extend %margin-bottom;
+      }
+   }
+
+   &__text {
+      font-size: $smaller-font-size;
+      &:not(:last-child){
+         @extend %margin-bottom;
+      }
+   }
+
+   &__value {
+      @extend %flex-center;
+      position: relative;
+      padding-bottom: 32px;
+
+      & span {
+         font-size: $h3-font-size;
+         font-weight: $font-medium;
+         color: $first-color;
+      }   
+   }
+
+   &__buttons {
+      font-size: 22px;
+      color: white;
+      background-color: $first-color;
+      padding: 6px;
+      border-radius: 50%;
+      display: flex;
+      position: absolute;
+      top: -8px;
+      right: 0;
+      margin-right: 20px;
+      box-shadow: 0 4px 20px hsla(19, 64%, 20%, 0.2);
+      transition: background 0.3s ease 0s;
+
+      &:hover{
+         background-color: $first-color-alt;
+      }
+   }
+}
+
+/* footer__body body-footer */
+.body-footer {
+   &__logo {
+      & > *:not(:last-child){
+         margin-bottom: 20px;
+      }
+      
+      & a {
+         display: flex;
+         align-items: center;
+      }
+
+      & a > *:not(:last-child){
+         margin-right: 8px;
+      }
+   }
+}
+
+.menu-footer {
+   display: flex;
+   gap: 20px;
+
+   &__item:not(:last-child){
+      margin-bottom: 8px;
+   }
+
+   &__link {
+      color: $text-color;
+      transition: color 0.3s ease 0s;
+      &:hover{
+         color: $first-color;
+      }
+   }
+}
+
+.social-footer {
+   &__label:not(:last-child){
+      margin-bottom: 20px;
+   }
+
+   &__items {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 8px;
+      font-size: 30px;
+   }
+}
+
+.social {
+   &__item {
+      color: $first-color;
+      transition: color 0.3s ease 0s, transform 0.3s ease 0s;
+      &:hover{
+         color: $first-color-alt;
+         transform: translateY(-2px);
+      }
+   }
+}
+/*=============== HEADER & NAV ===============*/
+@import "layout/header.scss";
+
+/* Change background header */
+.scroll-header{
+   transition: box-shadow 0.3s ease 0s;
+   box-shadow: 10px 0 0 $body-color, -10px 0 0 $body-color, 0 2px 8px hsla(19, 64%, 24%, .1);
+}
+
+/* Active link */
+.active-link{
+   color: $first-color;
+}
+
+/*=============== Main ===============*/
+@import "layout/main.scss";
+
+/*=============== FOOTER ===============*/
+@import "layout/footer.scss";
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+   position: fixed;
+   bottom: -50%;
+   right: 18px;
+   background-color: $first-color;
+   box-shadow: 0 4px 12px hsla(19, 64%, 24%, 0.1);
+   display: inline-flex;
+   padding: 6px;
+   border-radius: 4px;
+   font-size: 20px;
+   color: white;
+   z-index: 10;
+   transition: bottom 0.3s ease 0s, transform 0.3s ease 0s, background 0.3s ease 0s;
+
+   &:hover{
+      transform: translateY(-5px);
+   }
+}
+
+/* Show Scroll Up*/
+.show-scroll{
+   bottom: 54px;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+   width: 10px;
+   border-radius: 8px;
+   background-color: hsl(19, 8%, 75%);
+ }
+ 
+ ::-webkit-scrollbar-thumb{
+   border-radius: 8px;
+   background-color: hsl(19, 8%, 55%);
+ }
+ 
+ ::-webkit-scrollbar-thumb:hover{
+   background-color: hsl(19, 8%, 35%);
+ }
+
+/*=============== BREAKPOINTS ===============*/
+@import "layout/media";
+
+/*========== Dark theme ==========*/
+@import "layout/dark-theme";

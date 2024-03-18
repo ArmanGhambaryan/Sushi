@@ -1,0 +1,100 @@
+@import "helpers/placeholders.scss";
+
+.header {
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 21;
+   @include bg-color ($body-color);
+   transition: background 0.3s ease 0s;
+
+   &__container {
+      @extend %container;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      column-gap: 20px;
+      position: relative;
+   }
+
+   &__logo {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+      @include color ($title-color);
+      font-family: $title-font;
+      font-size: $h3-font-size;
+      font-weight: $font-semi-bold;
+      transition: color 0.3s ease 0s;
+      & img {
+         width: 25px;
+      }
+      &:hover{
+         @include color ($first-color);
+      }
+   }
+
+   &__button {
+      display: flex;
+      align-items: center;
+      column-gap: 18px;
+      margin-right: 18px;
+   }
+
+   &__change-theme {
+      font-size: 22px;
+      @include color ($first-color);
+      cursor: pointer;
+      transition: color 0.3s ease 0s;
+   }
+
+   &__toggle {
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+   }
+
+}
+
+@media (max-width: 520.98px){
+   .header {
+      &__menu {
+         position: fixed;
+         top: -100%;
+         left: 0;
+         @include bg-color ($body-color);
+         width: 100%;
+         transition: top 0.8s ease-in 0s;
+
+         &_show {
+            top: 0;
+            transition: top 0.8s ease 0s;
+         }
+      }
+
+      &__toggle {   
+         display: flex;
+      }
+   }
+
+   .menu {      
+      &__list {
+         flex-direction: column;
+         row-gap: 20px;
+         padding-block: 60px;
+         box-shadow: 0 8px 20px hsla(19, 64%, 24%, 0.1);
+         font-size: 30px;
+      }
+
+      &__icon {
+         display: inherit;
+      }
+
+      &__image-1,
+      &__image-2 {
+         display: inherit;
+      }
+   }
+}
